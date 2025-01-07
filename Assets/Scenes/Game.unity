@@ -1683,6 +1683,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panels:
   - {fileID: 1334736945}
+  InputTextArray:
+  - {fileID: 1234915353}
+  - {fileID: 1489806181}
 --- !u!4 &1716148020
 Transform:
   m_ObjectHideFlags: 0

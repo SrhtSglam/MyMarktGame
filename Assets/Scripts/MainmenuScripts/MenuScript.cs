@@ -23,10 +23,10 @@ public class MenuScript : MonoBehaviour
 #region //Main Panel Elements
     public void PlayOnClick(){
         OpenPanel(1); //Slot Panel No
-        string slot = PlayerPrefs.GetString("SaveSlot");
+        string slot = PlayerPrefs.GetString("IsSlotCreated");
         var slotTMP = SaveSlots[0].GetComponent<Transform>().GetChild(1);
         if(!string.IsNullOrEmpty(slot)){
-            slotTMP.GetComponent<TextMeshProUGUI>().text = "Slot Full";
+            slotTMP.GetComponent<TextMeshProUGUI>().text = "Load Save";
         }
         else{
             slotTMP.GetComponent<TextMeshProUGUI>().text = "New Save";
@@ -45,12 +45,11 @@ public class MenuScript : MonoBehaviour
 
 #region //Slot Panel Elements 
     public void SlotOnClick(){
-        string slot = PlayerPrefs.GetString("SaveSlot");
-        if(string.IsNullOrEmpty(slot)){
-            PlayerPrefs.SetString("SaveSlot", "True");
+        string IsCreated = PlayerPrefs.GetString("IsSlotCreated");
+        if(string.IsNullOrEmpty(IsCreated)){
+            PlayerPrefs.SetString("IsSlotCreated", "True");
             PlayerPrefs.Save();
         }
-
         SceneManager.LoadScene(1);
     }
 #endregion
@@ -76,6 +75,12 @@ public class MenuScript : MonoBehaviour
     public void OpenPanel(int panelNo){
         AllPanelClose();
         Panels[panelNo].SetActive(true);
+    }
+#endregion
+
+#region //Dynamic Slot Create Function
+    public void CreateSlot(int slotId){
+        string IsCreated = PlayerPrefs.GetString("IsSlotCreated");
     }
 #endregion
 }
