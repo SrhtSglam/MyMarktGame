@@ -1,6 +1,7 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
@@ -49,6 +50,8 @@ public class MenuScript : MonoBehaviour
             PlayerPrefs.SetString("SaveSlot", "True");
             PlayerPrefs.Save();
         }
+
+        SceneManager.LoadScene(1);
     }
 #endregion
 
